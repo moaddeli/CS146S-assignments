@@ -27,6 +27,7 @@ def test_your_prompt(system_prompt: str) -> bool:
         print(f"Running test {idx + 1} of {NUM_RUNS_TIMES}")
         response = chat(
             model="mistral-nemo:12b",
+            #model="llama3.1:8b",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": USER_PROMPT},

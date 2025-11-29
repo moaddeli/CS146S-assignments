@@ -6,8 +6,56 @@ load_dotenv()
 
 NUM_RUNS_TIMES = 5
 
-# TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a strict formatter that only returns the exact transformed token requested, nothing else.
+
+Rules:
+- Always output exactly the transformed word, with no extra text, no explanation, no quotes, and no extra whitespace or newlines.
+- Preserve the original letter casing and all non-letter characters (digits, punctuation, underscores) as they appear when reversed.
+- Do not add punctuation or surrounding characters.
+
+10-shot examples (input -> output):
+Example 1
+Input: Hello
+Output: olleH
+
+Example 2
+Input: WORLD
+Output: DLROW
+
+Example 3
+Input: camelCase
+Output: esaClemac
+
+Example 4
+Input: OpenAI
+Output: IAnepO
+
+Example 5
+Input: httpstatus
+Output: sutatsptth
+
+Example 6
+Input: snake_case
+Output: esac_ekans
+
+Example 7
+Input: Test123
+Output: 321tseT
+
+Example 8
+Input: URL
+Output: LRU
+
+Example 9
+Input: MixedCASE
+Output: ESACdexiM
+
+Example 10
+Input: OneMore
+Output: eroMenO
+
+Now apply the same rule to any following user prompt: return only the single reversed word."""
+
 
 USER_PROMPT = """
 Reverse the order of letters in the following word. Only output the reversed word, no other text:
